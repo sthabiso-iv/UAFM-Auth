@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import Image from 'next/image'
+import Link from 'next/link'
 
 const ALLOWED_REDIRECT_PREFIXES = [
   'https://app.apply.org.za/',
@@ -70,20 +71,14 @@ export default function LoginForm() {
     <main className="min-h-screen flex flex-col items-center justify-center bg-brand-dark px-4">
       <div className="w-full max-w-sm flex flex-col items-center gap-8">
         {/* Logo */}
-        <div className="flex flex-col items-center gap-4">
-          <Image
-            src="https://assets.apply.org.za/u-files/Logos/UniApplyForMeWhite.svg"
-            alt="UniApplyForMe"
-            width={220}
-            height={64}
-            priority
-            unoptimized
-          />
-          <p className="text-white/70 text-sm text-center leading-relaxed">
-            South Africa&apos;s free university &amp; bursary application
-            platform
-          </p>
-        </div>
+        <Image
+          src="https://assets.apply.org.za/u-files/Logos/UniApplyForMeWhite.svg"
+          alt="UniApplyForMe"
+          width={220}
+          height={64}
+          priority
+          unoptimized
+        />
 
         {/* Card */}
         <div className="w-full bg-white rounded-2xl shadow-2xl p-8 flex flex-col items-center gap-6">
@@ -117,13 +112,15 @@ export default function LoginForm() {
 
           <p className="text-xs text-gray-400 text-center leading-relaxed">
             By continuing you agree to UniApplyForMe&apos;s terms of service.
-            This service is provided free of charge.
           </p>
-        </div>
 
-        <p className="text-white/40 text-xs text-center">
-          auth.apply.org.za — secure OAuth relay
-        </p>
+          <Link
+            href="/reset-password"
+            className="text-xs text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            Sign in with email instead
+          </Link>
+        </div>
       </div>
     </main>
   )
