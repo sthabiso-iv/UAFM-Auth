@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react'
 import Image from 'next/image'
 
-const DEEP_LINK_BASE = 'https://app.apply.org.za/auth/callback'
+const DEEP_LINK_BASE = 'https://app.apply.org.za/app/home'
 
 interface Props {
   accessToken: string

@@ -26,7 +26,7 @@ export default function LoginForm() {
   const redirectTo =
     rawRedirectTo && isSafeRedirect(rawRedirectTo)
       ? rawRedirectTo
-      : 'https://app.apply.org.za/app/home'
+      : 'https://app.apply.org.za/auth/callback'
 
   // Suppress unused-variable lint — redirectTo is preserved for future use
   void redirectTo
@@ -49,7 +49,7 @@ export default function LoginForm() {
     const { error } = await supabase.auth.signInWithOAuth({
       provider: 'google',
       options: {
-        redirectTo: 'https://auth.apply.org.za/app/home',
+        redirectTo: 'https://auth.apply.org.za/auth/callback',
         queryParams: { access_type: 'offline', prompt: 'consent' },
       },
     })
